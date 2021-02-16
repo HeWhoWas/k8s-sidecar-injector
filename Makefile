@@ -8,7 +8,7 @@ VERSION ?= $(shell git describe --tags --always --dirty --match=v* 2> /dev/null 
 BIN      = $(GOPATH)/bin
 PKGS     = $(or $(PKG),$(shell $(GO) list ./... | grep -v "^$(PACKAGE)/vendor/"))
 TESTPKGS = $(shell env $(GO) list -f '{{ if or .TestGoFiles .XTestGoFiles }}{{ .ImportPath }}{{ end }}' $(PKGS))
-DOCKER_IMAGE_BASE = tumblr/k8s-sidecar-injector
+DOCKER_IMAGE_BASE = af.switchmedia.asia/k8s-sidecar-injector
 DOCKER_TAG = $(VERSION)
 
 export CGO_ENABLED := 0
