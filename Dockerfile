@@ -11,7 +11,7 @@ COPY go.mod go.sum Makefile ./
 # run vendor install and lint, so we have all deps installed
 RUN make vendor lint
 COPY . .
-RUN make test all
+RUN go mod vendor && make test all
 
 FROM alpine:latest
 ENV TLS_PORT=9443 \
